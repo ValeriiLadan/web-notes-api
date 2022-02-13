@@ -5,13 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Notes\**" />
-    <EmbeddedResource Remove="Notes\**" />
-    <None Remove="Notes\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Default\" />
+    <Folder Include="Notes\" />
   </ItemGroup>
 
 </Project>

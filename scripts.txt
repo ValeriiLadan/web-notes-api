@@ -1,1 +1,5 @@
+Force push for branche 
+git push -f origin feature/
+
+run DB by docker-compose.yml
 docker-compose run --service-ports db
