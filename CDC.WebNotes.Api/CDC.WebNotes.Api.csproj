@@ -13,6 +13,7 @@
     <ProjectReference Include="..\CDC.WebNotes.Application\CDC.WebNotes.Application.csproj" />
     <ProjectReference Include="..\CDC.WebNotes.Data\CDC.WebNotes.Data.csproj" />
     <ProjectReference Include="..\CDC.WebNotes.Domain\CDC.WebNotes.Domain.csproj" />
+    <ProjectReference Include="..\CDC.WebNotes.NewApi\CDC.WebNotes.NewApi.csproj" />
   </ItemGroup>
 
 

@@ -5,13 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Notes\**" />
-    <EmbeddedResource Remove="Notes\**" />
-    <None Remove="Notes\**" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Default\" />
+    <ProjectReference Include="..\CDC.WebNotes.Application\CDC.WebNotes.Application.csproj" />
   </ItemGroup>
 
 </Project>
