@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\CDC.WebNotes.Data\CDC.WebNotes.Data.csproj" />
   </ItemGroup>
 
 </Project>

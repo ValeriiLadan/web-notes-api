@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CDC.WebNotes.Application.Contracts;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace WebNotes.Controllers
@@ -7,13 +8,18 @@ namespace WebNotes.Controllers
     [Route("[controller]")]
     public class MainController : ControllerBase
     {
-        public MainController() {
+        private readonly INoteService _noteService;
+
+        public MainController(INoteService noteService) {
+            _noteService = noteService;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get() {
-            await Task.Delay(0);
-            return Ok($"Hello from WebNotes!");
+
+            var result = await _noteService.GetAll();
+
+            return Ok(result);
         }
     }
 }
