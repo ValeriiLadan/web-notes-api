@@ -1,6 +1,6 @@
 using System;
 
-namespace CDC.WebNotes.Domain
+namespace CDC.WebNotes.Domain.Notes
 {
     public class Note
     {

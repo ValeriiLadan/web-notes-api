@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CDC.WebNotes.Data\CDC.WebNotes.Data.csproj" />
+    <ProjectReference Include="..\CDC.WebNotes.Dto\CDC.WebNotes.Dto.csproj" />
+    <ProjectReference Include="..\CDC.WebNotes.Infrastructure\CDC.WebNotes.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

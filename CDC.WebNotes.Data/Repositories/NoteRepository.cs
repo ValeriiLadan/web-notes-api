@@ -1,4 +1,5 @@
 ﻿using CDC.WebNotes.Domain;
+using CDC.WebNotes.Domain.Notes;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
