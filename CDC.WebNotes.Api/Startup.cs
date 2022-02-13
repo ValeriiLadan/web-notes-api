@@ -2,10 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CDC.WebNotes.Application.Contracts;
+using CDC.WebNotes.Application.Services;
+using CDC.WebNotes.Data;
+using CDC.WebNotes.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,9 +29,13 @@ namespace WebNotes
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
-            //services.AddDbContext<ApplicationDbContext>(
-            //    op => op.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+            services.AddDbContext<ApplicationDbContext>(
+                op => op.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+
+            services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<INoteService, NoteService>();
             
+
             services.AddControllers();
         }
 
