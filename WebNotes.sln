@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Api", "CDC.WebNotes.Api\CDC.WebNotes.Api.csproj", "{94DBEF9B-5944-481A-A014-CB80B698A362}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Application", "CDC.WebNotes.Application\CDC.WebNotes.Application.csproj", "{FB1DECDD-5013-4FF6-8D5B-9869159FF43A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Data", "CDC.WebNotes.Data\CDC.WebNotes.Data.csproj", "{1D5B4353-E46E-41AD-9267-D0EAE5041572}"
@@ -27,16 +25,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{8EC7DF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Domain", "CDC.WebNotes.Domain\CDC.WebNotes.Domain.csproj", "{291C39CB-A7C0-44EC-8C25-BEF0E941FF3B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Host", "CDC.WebNotes.Host\CDC.WebNotes.Host.csproj", "{F07DD2CF-5504-444C-BEC1-042E5F63857E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Api", "CDC.WebNotes.Api\CDC.WebNotes.Api.csproj", "{5AB12613-187E-4F82-8598-029EA7C1938F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94DBEF9B-5944-481A-A014-CB80B698A362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94DBEF9B-5944-481A-A014-CB80B698A362}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94DBEF9B-5944-481A-A014-CB80B698A362}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94DBEF9B-5944-481A-A014-CB80B698A362}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FB1DECDD-5013-4FF6-8D5B-9869159FF43A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FB1DECDD-5013-4FF6-8D5B-9869159FF43A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB1DECDD-5013-4FF6-8D5B-9869159FF43A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +55,14 @@ Global
 		{291C39CB-A7C0-44EC-8C25-BEF0E941FF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{291C39CB-A7C0-44EC-8C25-BEF0E941FF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{291C39CB-A7C0-44EC-8C25-BEF0E941FF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07DD2CF-5504-444C-BEC1-042E5F63857E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07DD2CF-5504-444C-BEC1-042E5F63857E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07DD2CF-5504-444C-BEC1-042E5F63857E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07DD2CF-5504-444C-BEC1-042E5F63857E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB12613-187E-4F82-8598-029EA7C1938F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB12613-187E-4F82-8598-029EA7C1938F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB12613-187E-4F82-8598-029EA7C1938F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB12613-187E-4F82-8598-029EA7C1938F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
