@@ -1,5 +1,35 @@
-Force push for branche 
-git push -f origin feature/
 
-run DB by docker-compose.yml
+------------------- Run DB by docker-compose.yml -------------------------------
 docker-compose run --service-ports db
+
+
+------------------- Test DB population -------------------------------
+--Create and config Database [WebNotesDB]   
+CREATE DATABASE [WebNotesDB]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'WebNotesDB', FILENAME = N'/var/opt/mssql/data/WebNotesDB.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'WebNotesDB_log', FILENAME = N'/var/opt/mssql/data/WebNotesDB_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+
+--Create Notes table
+USE [WebNotesDB]
+GO
+CREATE TABLE [dbo].[Notes](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](max) NULL,
+	[Description] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+--Insert test values to Notes table
+INSERT INTO [Notes]
+VALUES 
+('First Note','Test descriptiones'),
+('Second Note',NULL),
+('Third Note','Welcome to real world')
+
+------------------- Force push for branch -------------------------------
+git push -f origin feature/
