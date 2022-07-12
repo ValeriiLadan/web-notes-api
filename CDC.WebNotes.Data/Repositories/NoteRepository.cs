@@ -21,7 +21,8 @@ namespace CDC.WebNotes.Data.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task<IReadOnlyCollection<Note>> GetAllNotes() {
+        public async Task<IReadOnlyCollection<Note>> GetAllNotes() 
+        {
             return await _dbContext.Notes.ToListAsync();
         }
     }

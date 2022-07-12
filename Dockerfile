@@ -12,7 +12,7 @@ RUN dotnet restore
 
 #Publish
 COPY . ./
-RUN dotnet publish "CDC.WebNotes.Api/CDC.WebNotes.Api.csproj" -c Release -o out
+RUN dotnet publish "CDC.WebNotes.Host/CDC.WebNotes.Host.csproj" -c Release -o out
 
 #Final
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
@@ -20,4 +20,4 @@ WORKDIR /app
 EXPOSE 5000 
 COPY --from=build /app/out .
 
-ENTRYPOINT ["/app/CDC.WebNotes.Api"]
+ENTRYPOINT ["/app/CDC.WebNotes.Host"]

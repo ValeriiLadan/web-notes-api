@@ -1,5 +1,6 @@
 ﻿using CDC.WebNotes.Application.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace WebNotes.Controllers
@@ -17,9 +18,15 @@ namespace WebNotes.Controllers
         [HttpGet]
         public async Task<IActionResult> Get() {
 
-            var result = await _noteService.GetAll();
+            try {
+                var result = await _noteService.GetAll();
 
-            return Ok(result);
+                return Ok(result);
+
+            } catch (Exception ex) {
+
+                return Ok(ex.Message);
+            }
         }
     }
 }

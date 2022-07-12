@@ -12,9 +12,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Dto", "CDC.WebNotes.Dto\CDC.WebNotes.Dto.csproj", "{5ADFE6D9-528A-46C6-958F-9A3ABA990C40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{ED3ED565-B229-4FB5-BC23-85BDA7E2856D}"
-	ProjectSection(SolutionItems) = preProject
-		scripts.txt = scripts.txt
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{8EC7DF26-FBFE-4299-8C05-8DB627275F9F}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,6 +25,11 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Host", "CDC.WebNotes.Host\CDC.WebNotes.Host.csproj", "{F07DD2CF-5504-444C-BEC1-042E5F63857E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Api", "CDC.WebNotes.Api\CDC.WebNotes.Api.csproj", "{5AB12613-187E-4F82-8598-029EA7C1938F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{92747283-B69B-4EB3-8106-2491C2C219AD}"
+	ProjectSection(SolutionItems) = preProject
+		scripts.txt = scripts.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8EC7DF26-FBFE-4299-8C05-8DB627275F9F} = {ED3ED565-B229-4FB5-BC23-85BDA7E2856D}
+		{92747283-B69B-4EB3-8106-2491C2C219AD} = {ED3ED565-B229-4FB5-BC23-85BDA7E2856D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03C7A8AF-F5F2-43BB-8507-816E32715B02}
