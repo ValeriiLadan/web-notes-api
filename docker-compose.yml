@@ -13,6 +13,11 @@ services:
       - "1433:1433"
     volumes:
       - sqlserverdata:/var/lib/sqlserver/data
+ webnotes-api:
+    build:
+      context: .
+    ports:
+    - "5001:80"
 
 volumes:
   sqlserverdata:
