@@ -2,8 +2,6 @@
 ------------------- Run DB by docker-compose.yml -------------------------------
 docker-compose run --service-ports webnotes-db
 
-docker-compose run --service-ports webnotes-api
-
 
 ------------------- Test DB population -------------------------------
 --Create and config Database [WebNotesDB]   
