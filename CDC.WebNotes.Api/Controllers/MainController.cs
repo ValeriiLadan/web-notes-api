@@ -19,7 +19,7 @@ namespace WebNotes.Controllers
         public async Task<IActionResult> Get() {
 
             try {
-                var result = await _noteService.GetAll();
+                var result = await _noteService.GetAllNotes();
 
                 return Ok(result);
 

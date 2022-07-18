@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Default\" />
-    <Folder Include="Notes\" />
   </ItemGroup>
 
 </Project>

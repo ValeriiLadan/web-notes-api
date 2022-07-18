@@ -1,6 +1,10 @@
+using AutoMapper;
+using CDC.WebNotes.Api.Mapping;
 using CDC.WebNotes.Application.Contracts;
+using CDC.WebNotes.Application.Mapping;
 using CDC.WebNotes.Application.Services;
 using CDC.WebNotes.Data;
+using CDC.WebNotes.Data.Contracts;
 using CDC.WebNotes.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +33,13 @@ namespace WebNotes
             services.AddScoped<INoteService, NoteService>();
 
             services.AddControllers();
+
+            services.AddAutoMapper(config =>
+                config.AddProfiles(new Profile[]
+                {
+                    new AppProfile(),
+                    new ApiProfile()
+                }));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

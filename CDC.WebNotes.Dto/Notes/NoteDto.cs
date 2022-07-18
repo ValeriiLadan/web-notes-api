@@ -1,6 +1,6 @@
-namespace CDC.WebNotes.Domain.Notes
+namespace CDC.WebNotes.Dto.Notes
 {
-    public class Note
+    public class NoteDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
