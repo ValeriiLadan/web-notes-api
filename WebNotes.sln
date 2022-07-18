@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Dto", "CDC.WebNotes.Dto\CDC.WebNotes.Dto.csproj", "{5ADFE6D9-528A-46C6-958F-9A3ABA990C40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{ED3ED565-B229-4FB5-BC23-85BDA7E2856D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{8EC7DF26-FBFE-4299-8C05-8DB627275F9F}"
 	ProjectSection(SolutionItems) = preProject
@@ -30,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9274
 	ProjectSection(SolutionItems) = preProject
 		scripts.txt = scripts.txt
 	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.DB.Migrations", "CDC.WebNotes.DB.Migrations\CDC.WebNotes.DB.Migrations.csproj", "{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +70,10 @@ Global
 		{5AB12613-187E-4F82-8598-029EA7C1938F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AB12613-187E-4F82-8598-029EA7C1938F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AB12613-187E-4F82-8598-029EA7C1938F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
