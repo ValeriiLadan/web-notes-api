@@ -8,5 +8,9 @@ namespace CDC.WebNotes.Application.Contracts
     {
         Task<IReadOnlyCollection<NoteDto>> GetAllNotes();
         Task<NoteDto> GetNote(int id);
+        Task<NoteDto> CreateNote(NoteDto createNote);
+        Task UpdateNote(int id, UpdateNoteDto note);
+        Task DeleteNote(int id);
+
     }
 }

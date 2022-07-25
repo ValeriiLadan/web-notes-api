@@ -32,12 +32,13 @@ namespace WebNotes
             services.AddScoped<INoteRepository, NoteRepository>();
             services.AddScoped<INoteService, NoteService>();
 
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson();
 
             services.AddAutoMapper(config =>
                 config.AddProfiles(new Profile[]
                 {
-                    new AppProfile(),
+                    new ApplicationProfile(),
                     new ApiProfile()
                 }));
         }
