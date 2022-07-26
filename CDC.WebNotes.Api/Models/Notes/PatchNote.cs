@@ -1,8 +1,7 @@
-namespace CDC.WebNotes.Domain.Notes
+﻿namespace CDC.WebNotes.Api.Models.Notes
 {
-    public class Note
+    public class PatchNote
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }
