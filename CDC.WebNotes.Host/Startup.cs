@@ -1,11 +1,8 @@
 using AutoMapper;
 using CDC.WebNotes.Api.Mapping;
-using CDC.WebNotes.Application.Contracts;
 using CDC.WebNotes.Application.Mapping;
-using CDC.WebNotes.Application.Services;
 using CDC.WebNotes.Data;
-using CDC.WebNotes.Data.Contracts;
-using CDC.WebNotes.Data.Repositories;
+using CDC.WebNotes.Host.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,11 +26,16 @@ namespace WebNotes
             services.AddDbContext<ApplicationDbContext>(
                 op => op.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
 
-            services.AddScoped<INoteRepository, NoteRepository>();
-            services.AddScoped<INoteService, NoteService>();
+            services.AddProblemDetailsConfig();
+
+            services.AddServices();
+
+            services.AddRepositories();
 
             services.AddControllers()
                     .AddNewtonsoftJson();
+
+            services.AddSwaggerGen();
 
             services.AddAutoMapper(config =>
                 config.AddProfiles(new Profile[]
@@ -48,6 +50,8 @@ namespace WebNotes
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                app.AddDevelopmentConfig();
             }
 
             app.UseHttpsRedirection();
