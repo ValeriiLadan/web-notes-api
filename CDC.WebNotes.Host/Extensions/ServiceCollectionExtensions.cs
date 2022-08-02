@@ -3,10 +3,12 @@ using CDC.WebNotes.Application.Services;
 using CDC.WebNotes.Data.Contracts;
 using CDC.WebNotes.Data.Repositories;
 using FluentValidation;
+using FluentValidation.AspNetCore;
 using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace CDC.WebNotes.Host.Extensions
 {
@@ -34,6 +36,18 @@ namespace CDC.WebNotes.Host.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<INoteRepository, NoteRepository>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddFluentValidationConfig(this IServiceCollection services)
+        {
+            services.AddFluentValidation(config =>
+            {
+                config.RegisterValidatorsFromAssemblyContaining<Api.Validators.Notes.CreateNoteValidator>();
+            });
+
+            ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("en-US");
 
             return services;
         }

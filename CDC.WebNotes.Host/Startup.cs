@@ -35,6 +35,8 @@ namespace WebNotes
             services.AddControllers()
                     .AddNewtonsoftJson();
 
+            services.AddFluentValidationConfig();
+
             services.AddSwaggerGen();
 
             services.AddAutoMapper(config =>
