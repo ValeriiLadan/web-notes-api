@@ -1,8 +1,6 @@
 ﻿namespace CDC.WebNotes.Api.Models.Notes
 {
-    public class PutNote
+    public class PutNote : CreateNote
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
     }
 }
