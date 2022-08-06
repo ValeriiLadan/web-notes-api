@@ -26,7 +26,7 @@ namespace CDC.WebNotes.DB.Migrations
 
         public override void Down()
         {
-            Delete.Table(NotesTableName); ;
+            Delete.Table(NotesTableName);
         }
     }
 }
