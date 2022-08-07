@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using CDC.WebNotes.Api.Models;
 using CDC.WebNotes.Api.Models.Notes;
+using CDC.WebNotes.Dto;
 using CDC.WebNotes.Dto.Notes;
 
 namespace CDC.WebNotes.Api.Mapping
@@ -24,6 +26,12 @@ namespace CDC.WebNotes.Api.Mapping
 
             CreateMap<Note, NoteDto>()
                 .ReverseMap();
+
+            CreateMap<PagingRequest, PagingDto>();
+
+            CreateMap<NotesSortingRequest, SortingDto<NotesSortingFieldsDto>>();
+
+            CreateMap<NotesPageDto, NotesPageResponce>();     
         }
     }
 }

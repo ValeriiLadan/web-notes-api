@@ -31,7 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.Api", "CDC.Web
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{92747283-B69B-4EB3-8106-2491C2C219AD}"
 	ProjectSection(SolutionItems) = preProject
-		scripts.txt = scripts.txt
+		scriptsDocker.txt = scriptsDocker.txt
+		scriptsSQL.txt = scriptsSQL.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CDC.WebNotes.DB.Migrations", "CDC.WebNotes.DB.Migrations\CDC.WebNotes.DB.Migrations.csproj", "{F23E9419-FCC3-4FAB-A1F4-0375CC49A2B7}"

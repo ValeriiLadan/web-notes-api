@@ -1,0 +1,22 @@
+
+------------------- Run DB by docker-compose.yml -------------------------------
+docker-compose run --service-ports webnotes-db
+
+
+------------------------ Docker comands ---------------------------------
+
+docker images
+
+docker run -p 5000:80 valeriiladan/webnotes
+
+docker build -t valeriiladan/webnotes .
+
+docker run -p 5000:80 valeriiladan/webnotes
+
+docker login -u valeriiladan -p ****
+
+docker push valeriiladan/webnotes
+
+
+------------------- Force push for branch -------------------------------
+git push -f origin feature/featureName

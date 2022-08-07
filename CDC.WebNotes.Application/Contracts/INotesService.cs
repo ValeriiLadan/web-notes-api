@@ -1,16 +1,15 @@
-﻿using CDC.WebNotes.Dto.Notes;
-using System.Collections.Generic;
+﻿using CDC.WebNotes.Dto;
+using CDC.WebNotes.Dto.Notes;
 using System.Threading.Tasks;
 
 namespace CDC.WebNotes.Application.Contracts
 {
-    public interface INoteService
+    public interface INotesService
     {
-        Task<IReadOnlyCollection<NoteDto>> GetAllNotes();
+        Task<NotesPageDto> GetAllNotes(PagingDto pagingDto, SortingDto<NotesSortingFieldsDto> sortingDto);
         Task<NoteDto> GetNote(int id);
         Task<NoteDto> CreateNote(NoteDto createNote);
         Task UpdateNote(int id, UpdateNoteDto note);
         Task DeleteNote(int id);
-
     }
 }
