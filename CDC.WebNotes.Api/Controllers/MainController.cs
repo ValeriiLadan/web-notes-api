@@ -1,4 +1,6 @@
 ﻿using CDC.WebNotes.Application.Contracts;
+using CDC.WebNotes.Dto;
+using CDC.WebNotes.Dto.Notes;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -9,21 +11,26 @@ namespace WebNotes.Controllers
     [Route("[controller]")]
     public class MainController : ControllerBase
     {
-        private readonly INoteService _noteService;
+        private readonly INotesService _noteService;
 
-        public MainController(INoteService noteService) {
+        public MainController(INotesService noteService)
+        {
             _noteService = noteService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get() {
+        public async Task<IActionResult> Get()
+        {
 
-            try {
-                var result = await _noteService.GetAllNotes();
+            try
+            {
+                var result = await _noteService.GetAllNotes(new PagingDto(), new SortingDto<NotesSortingFieldsDto>());
 
                 return Ok(result);
 
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
 
                 return Ok(ex.Message);
             }

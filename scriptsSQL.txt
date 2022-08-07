@@ -1,10 +1,5 @@
-
-------------------- Run DB by docker-compose.yml -------------------------------
-docker-compose run --service-ports webnotes-db
-
-
 ------------------- Test DB population -------------------------------
---Create and config Database [WebNotesDB]   
+--- Create and config Database [WebNotesDB] ---  
 CREATE DATABASE [WebNotesDB]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -14,7 +9,7 @@ CREATE DATABASE [WebNotesDB]
  WITH CATALOG_COLLATION = DATABASE_DEFAULT
 GO
 
---Create Notes table
+--- Create Notes table ---
 USE [WebNotesDB]
 GO
 CREATE TABLE [dbo].[Notes](
@@ -24,26 +19,15 @@ CREATE TABLE [dbo].[Notes](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 
---Insert test values to Notes table
+--- Insert test values to Notes table ---
 INSERT INTO [Notes]
 VALUES 
 ('First Note','Test descriptiones'),
 ('Second Note',NULL),
 ('Third Note','Welcome to real world')
 
-------------------- Force push for branch -------------------------------
-git push -f origin feature/
+------------------- Test DB remote access -------------------------------
 
------------------------- Docker comands ---------------------------------
-
-docker images
-
-docker run -p 5000:80 valeriiladan/webnotes
-
-docker build -t valeriiladan/webnotes .
-
-docker run -p 5000:80 valeriiladan/webnotes
-
-docker login -u valeriiladan -p ****
-
-docker push valeriiladan/webnotes
+EXEC sp_configure 'remote access', 0;
+ 
+RECONFIGURE;

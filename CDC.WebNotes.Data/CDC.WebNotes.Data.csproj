@@ -5,16 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CDC.WebNotes.Domain\CDC.WebNotes.Domain.csproj" />
+    <ProjectReference Include="..\CDC.WebNotes.Dto\CDC.WebNotes.Dto.csproj" />
   </ItemGroup>
 
 </Project>

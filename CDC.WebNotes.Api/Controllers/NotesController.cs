@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using CDC.WebNotes.Api.Models;
 using CDC.WebNotes.Api.Models.Notes;
 using CDC.WebNotes.Application.Contracts;
+using CDC.WebNotes.Dto;
 using CDC.WebNotes.Dto.Notes;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -13,27 +15,32 @@ namespace WebNotes.Controllers
     [Route("[controller]")]
     public class NotesController : ControllerBase
     {
-        private readonly INoteService _noteService;
+        private readonly INotesService _notesService;
         private readonly IMapper _mapper;
 
-        public NotesController(INoteService noteService, IMapper mapper)
+        public NotesController(INotesService notesService, IMapper mapper)
         {
-            _noteService = noteService;
+            _notesService = notesService;
             _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PagingRequest pagingRequest,
+                                             [FromQuery] NotesSortingRequest sortingRequest)
         {
-            IReadOnlyCollection<NoteDto> notes = await _noteService.GetAllNotes();
+            PagingDto pagingDto = _mapper.Map<PagingDto>(pagingRequest);
 
-            return Ok(_mapper.Map<IReadOnlyCollection<NoteDto>, IReadOnlyCollection<Note>>(notes));
+            SortingDto<NotesSortingFieldsDto> sortingDto = _mapper.Map<SortingDto<NotesSortingFieldsDto>>(sortingRequest);
+
+            NotesPageDto notes = await _notesService.GetAllNotes(pagingDto, sortingDto);
+
+            return Ok(_mapper.Map<NotesPageResponce>(notes));
         }
 
         [HttpGet("{id}")]
         public async Task<Note> Get([FromRoute] int id)
         {
-            NoteDto note = await _noteService.GetNote(id);
+            NoteDto note = await _notesService.GetNote(id);
 
             return _mapper.Map<NoteDto, Note>(note);
         }
@@ -43,7 +50,7 @@ namespace WebNotes.Controllers
         {
             NoteDto createNoteDto = _mapper.Map<NoteDto>(createNote);
 
-            NoteDto createdNote = await _noteService.CreateNote(createNoteDto);
+            NoteDto createdNote = await _notesService.CreateNote(createNoteDto);
 
             return CreatedAtAction(
                 nameof(NotesController.Get),
@@ -55,24 +62,24 @@ namespace WebNotes.Controllers
         public async Task<IActionResult> PatchNote([FromRoute] int id,
                                                    [FromBody] JsonPatchDocument<PatchNote> patchDocument)
         {
-            NoteDto note = await _noteService.GetNote(id);
+            NoteDto note = await _notesService.GetNote(id);
 
             PatchNote patchNote = _mapper.Map<PatchNote>(note);
 
             patchDocument.ApplyTo(patchNote);
 
-            await _noteService.UpdateNote( id, _mapper.Map<UpdateNoteDto>(patchNote));
+            await _notesService.UpdateNote(id, _mapper.Map<UpdateNoteDto>(patchNote));
 
             return NoContent();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutNote([FromRoute] int id, 
+        public async Task<IActionResult> PutNote([FromRoute] int id,
                                                  [FromBody] PutNote putNote)
         {
             UpdateNoteDto noteDto = _mapper.Map<UpdateNoteDto>(putNote);
 
-            await _noteService.UpdateNote(id, noteDto);
+            await _notesService.UpdateNote(id, noteDto);
 
             return NoContent();
         }
@@ -80,7 +87,7 @@ namespace WebNotes.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteNote([FromRoute] int id)
         {
-            await _noteService.DeleteNote(id);
+            await _notesService.DeleteNote(id);
 
             return NoContent();
         }

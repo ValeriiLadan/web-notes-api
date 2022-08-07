@@ -28,14 +28,14 @@ namespace CDC.WebNotes.Host.Extensions
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<INoteService, NoteService>();
+            services.AddScoped<INotesService, NotesService>();
 
             return services;
         }
 
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            services.AddScoped<INoteRepository, NoteRepository>();
+            services.AddScoped<INotesRepository, NotesRepository>();
 
             return services;
         }
