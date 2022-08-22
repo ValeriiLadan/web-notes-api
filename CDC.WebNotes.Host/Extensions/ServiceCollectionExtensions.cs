@@ -29,6 +29,7 @@ namespace CDC.WebNotes.Host.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<INotesService, NotesService>();
+            services.AddScoped<INoteCheckListItemsService, NoteCheckListItemsService>();
 
             return services;
         }
@@ -36,6 +37,7 @@ namespace CDC.WebNotes.Host.Extensions
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<INotesRepository, NotesRepository>();
+            services.AddScoped<INoteCheckListItemsRepository, NoteCheckListItemsRepository>();
 
             return services;
         }

@@ -12,6 +12,19 @@ namespace CDC.WebNotes.Application.Mapping
                 .ReverseMap();
 
             CreateMap<UpdateNoteDto, Note>();
+
+            CreateMap<NoteCheckListItem, NoteCheckListItemDto>()
+                .ReverseMap();
+
+            CreateMap<CreateNoteCheckListItemDto, NoteCheckListItem>()
+                .ForMember(domain => domain.Id, exp => exp.Ignore())
+                .ForMember(domain => domain.IsComplited, exp => exp.Ignore())
+                .ForMember(domain => domain.Note, exp => exp.Ignore());
+
+            CreateMap<PatchNoteCheckListItemDto, NoteCheckListItem>()
+               .ForMember(domain => domain.Id, exp => exp.Ignore())
+               .ForMember(domain => domain.Note, exp => exp.Ignore());
+
         }
     }
 }

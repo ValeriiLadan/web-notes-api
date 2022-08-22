@@ -11,5 +11,6 @@ namespace CDC.WebNotes.Application.Contracts
         Task<NoteDto> CreateNote(NoteDto createNote);
         Task UpdateNote(int id, UpdateNoteDto note);
         Task DeleteNote(int id);
+        Task AddNoteCheckListItem(int noteId, CreateNoteCheckListItemDto checkListItemDto);
     }
 }

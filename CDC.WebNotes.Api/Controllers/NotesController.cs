@@ -52,10 +52,9 @@ namespace WebNotes.Controllers
 
             NoteDto createdNote = await _notesService.CreateNote(createNoteDto);
 
-            return CreatedAtAction(
-                nameof(NotesController.Get),
-                "Notes",
-                new { id = createdNote.Id });
+            return CreatedAtAction(nameof(NotesController.Get),
+                                   "Notes",
+                                   new { id = createdNote.Id });
         }
 
         [HttpPatch("{id}")]
@@ -90,6 +89,19 @@ namespace WebNotes.Controllers
             await _notesService.DeleteNote(id);
 
             return NoContent();
+        }
+
+        [HttpPost("{id}/checkListItems")]
+        public async Task<IActionResult> PostCheckListItem([FromRoute] int id, 
+                                                           [FromBody] CreateNoteCheckListItem createCheckListItem)
+        {
+            CreateNoteCheckListItemDto createDto = _mapper.Map<CreateNoteCheckListItemDto>(createCheckListItem);
+
+            await _notesService.AddNoteCheckListItem(id, createDto);
+
+            return CreatedAtAction(nameof(NotesController.Get),
+                                   "Notes",
+                                   new { noteId = id });
         }
     }
 }
