@@ -26,6 +26,11 @@ VALUES
 ('Second Note',NULL),
 ('Third Note','Welcome to real world')
 
+--- Insert test values to NoteCheckListItems table ---
+INSERT INTO WebNotesDB.dbo.NoteCheckListItems
+(Value, IsComplited , NoteId)
+VALUES('Firs check ', 1, 1),('Second check ',0 , 1),('Second in second',0 , 2);
+
 ------------------- Test DB remote access -------------------------------
 
 EXEC sp_configure 'remote access', 0;

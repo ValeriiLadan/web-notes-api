@@ -59,5 +59,14 @@ namespace CDC.WebNotes.Application.Services
             Note note = await _notesRepository.GetNote(id);
             await _notesRepository.DeleteNote(note);
         }
+
+        public async Task AddNoteCheckListItem(int noteId, CreateNoteCheckListItemDto checkListItemDto)
+        {
+            Note note = await _notesRepository.GetNote(noteId);
+
+            note.AddCheckListItem(_mapper.Map<NoteCheckListItem>(checkListItemDto));
+
+            await _notesRepository.SaveChanges();
+        }
     }
 }

@@ -31,7 +31,15 @@ namespace CDC.WebNotes.Api.Mapping
 
             CreateMap<NotesSortingRequest, SortingDto<NotesSortingFieldsDto>>();
 
-            CreateMap<NotesPageDto, NotesPageResponce>();     
+            CreateMap<NotesPageDto, NotesPageResponce>();
+
+            CreateMap<NoteCheckListItemDto, NoteCheckListItem>();
+
+            CreateMap<CreateNoteCheckListItem, CreateNoteCheckListItemDto>();
+
+            CreateMap<NoteCheckListItemDto, PatchNoteCheckListItem>();
+
+            CreateMap<PatchNoteCheckListItem, PatchNoteCheckListItemDto>();
         }
     }
 }

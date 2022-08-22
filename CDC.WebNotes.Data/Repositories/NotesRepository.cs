@@ -21,6 +21,7 @@ namespace CDC.WebNotes.Data.Repositories
         public async Task<IReadOnlyCollection<Note>> GetAllNotes(PagingDto pagingDto, SortingDto<NotesSortingFieldsDto> sortingDto)
         {
             return await _dbContext.Notes
+                .Include(note => note.CheckListItems)
                 .Sort(sortingDto)
                 .Page(pagingDto)
                 .AsNoTracking()
@@ -30,6 +31,7 @@ namespace CDC.WebNotes.Data.Repositories
         public async Task<Note> GetNote(int id)
         {
             return await _dbContext.Notes
+                .Include(note => note.CheckListItems)
                 .FirstOrDefaultAsync(note => note.Id == id)
                 ?? throw new KeyNotFoundException($"Note Id {id} was not found");
         }

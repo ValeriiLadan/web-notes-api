@@ -21,7 +21,6 @@ namespace CDC.WebNotes.DB.Migrations
                         ('First Note', 'Test descriptiones'),
                         ('Second Note', NULL),
                         ('Third Note', 'Welcome to real world')");
-
         }
 
         public override void Down()
