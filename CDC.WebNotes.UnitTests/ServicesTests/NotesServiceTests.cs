@@ -1,10 +1,8 @@
 ﻿using AutoFixture;
-using AutoMapper;
-using AutoMapper.EquivalencyExpression;
 using CDC.WebNotes.Application.Contracts;
-using CDC.WebNotes.Application.Mapping;
 using CDC.WebNotes.Application.Services;
 using CDC.WebNotes.Data.Contracts;
+using CDC.WebNotes.DataFactories.EntityBuilders;
 using CDC.WebNotes.Domain.Notes;
 using CDC.WebNotes.Dto.Notes;
 using FluentAssertions;
@@ -25,7 +23,7 @@ namespace CDC.WebNotes.UnitTests.ServicesTests
         [Fact]
         public async Task GetNote_ById_ShouldReturnNote()
         {
-            Note note = Fixture.Create<Note>();
+            Note note = new NoteBuilder().WithCheckListItems().Build();
 
             Mocker.GetMock<INotesRepository>()
                   .Setup((INotesRepository repo) => repo.GetNote(It.IsAny<int>()))

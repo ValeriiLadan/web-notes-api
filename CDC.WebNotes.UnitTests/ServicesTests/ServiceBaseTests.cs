@@ -4,8 +4,12 @@ using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using Bogus;
 using CDC.WebNotes.Application.Mapping;
+using CDC.WebNotes.Domain.Notes;
 using Moq.AutoMock;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+
+[assembly: ExcludeFromCodeCoverage]
 
 namespace CDC.WebNotes.UnitTests.ServicesTests
 {
