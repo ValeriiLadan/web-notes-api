@@ -1,6 +1,5 @@
 using AutoMapper;
-using CDC.WebNotes.Api.Mapping;
-using CDC.WebNotes.Application.Mapping;
+using AutoMapper.EquivalencyExpression;
 using CDC.WebNotes.Data;
 using CDC.WebNotes.Host.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -43,12 +42,11 @@ namespace WebNotes
 
             services.AddSwaggerGen();
 
-            services.AddAutoMapper(config =>
-                config.AddProfiles(new Profile[]
-                {
-                    new ApplicationProfile(),
-                    new ApiProfile()
-                }));
+            services.AddAutoMapper(config => {
+                config.AddMaps(typeof(CDC.WebNotes.Api.Mapping.ApiProfile),
+                               typeof(CDC.WebNotes.Application.Mapping.ApplicationProfile));
+                config.AddCollectionMappers();
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

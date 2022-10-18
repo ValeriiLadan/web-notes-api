@@ -5,7 +5,6 @@ namespace CDC.WebNotes.Dto.Notes
         public int Id { get; set; }
         public string Value { get; set; }
         public bool IsComplited { get; set; }
-        public NoteDto Note { get; set; }
     }
 
     public class CreateNoteCheckListItemDto
