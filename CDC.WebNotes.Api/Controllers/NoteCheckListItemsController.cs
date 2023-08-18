@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CDC.WebNotes.Api.Models.Notes;
+using CDC.WebNotes.Api.Models.Notes.NoteCheckListItems;
 using CDC.WebNotes.Application.Contracts;
-using CDC.WebNotes.Dto.Notes;
+using CDC.WebNotes.Dto.NoteCheckListItems;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;

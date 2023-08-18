@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using CDC.WebNotes.Application.Contracts;
 using CDC.WebNotes.Data.Contracts;
-using CDC.WebNotes.Domain.Notes;
-using CDC.WebNotes.Dto.Notes;
+using CDC.WebNotes.Domain;
+using CDC.WebNotes.Dto.NoteCheckListItems;
 using System.Threading.Tasks;
 
 namespace CDC.WebNotes.Application.Services

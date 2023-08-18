@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 
 namespace CDC.WebNotes.Data.Contracts
 {
-    public interface INoteCheckListItemsRepository
+    public interface IUsersRepository
     {
-        Task<NoteCheckListItem> GetNoteCheckListItem(int id);
+        Task<User> GetUserByUsernameAsync(string username);
+        Task<User> AddUserAsync(User user);
         Task SaveChanges();
     }
 }

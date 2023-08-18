@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
-using CDC.WebNotes.Domain.Notes;
+using CDC.WebNotes.Domain;
+using CDC.WebNotes.Dto;
+using CDC.WebNotes.Dto.Files;
+using CDC.WebNotes.Dto.NoteCheckListItems;
 using CDC.WebNotes.Dto.Notes;
 
 namespace CDC.WebNotes.Application.Mapping
@@ -27,6 +30,18 @@ namespace CDC.WebNotes.Application.Mapping
                .ForMember(domain => domain.Id, exp => exp.Ignore())
                .ForMember(domain => domain.Note, exp => exp.Ignore());
 
+            //Files
+            CreateMap<File, FileDto>()
+             .ReverseMap();
+
+            CreateMap<UpdateFileDto, File>()
+              .ForMember(domain => domain.Id, exp => exp.Ignore());
+
+            CreateMap<Attachment, AttachmentDto>()
+             .ReverseMap();
+
+            CreateMap<User, UserDto>()
+             .ReverseMap();
         }
     }
 }

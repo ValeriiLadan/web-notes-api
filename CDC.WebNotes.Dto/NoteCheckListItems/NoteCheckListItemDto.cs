@@ -1,4 +1,4 @@
-namespace CDC.WebNotes.Dto.Notes
+namespace CDC.WebNotes.Dto.NoteCheckListItems
 {
     public class NoteCheckListItemDto
     {

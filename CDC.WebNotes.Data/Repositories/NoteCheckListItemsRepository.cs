@@ -1,5 +1,5 @@
 ﻿using CDC.WebNotes.Data.Contracts;
-using CDC.WebNotes.Domain.Notes;
+using CDC.WebNotes.Domain;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace CDC.WebNotes.Data.Repositories
         {
             return await _dbContext.NoteCheckListItems
                 .FirstOrDefaultAsync(checkListItem => checkListItem.Id == id) 
-                ?? throw new KeyNotFoundException($"Note Id {id} was not found");
+                ?? throw new KeyNotFoundException($"CheckListItem Id {id} was not found");
         }
 
         public async Task SaveChanges()
