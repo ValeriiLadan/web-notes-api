@@ -3,7 +3,7 @@ using CDC.WebNotes.Application.Contracts;
 using CDC.WebNotes.Application.Services;
 using CDC.WebNotes.Data.Contracts;
 using CDC.WebNotes.DataFactories.EntityBuilders;
-using CDC.WebNotes.Domain.Notes;
+using CDC.WebNotes.Domain;
 using CDC.WebNotes.Dto.Notes;
 using FluentAssertions;
 using Moq;
@@ -23,7 +23,9 @@ namespace CDC.WebNotes.UnitTests.ServicesTests
         [Fact]
         public async Task GetNote_ById_ShouldReturnNote()
         {
-            Note note = new NoteBuilder().WithCheckListItems().Build();
+            var _fixture = new Fixture();
+            Note note = _fixture.Create<Note>();
+            note.Name = "test"; // new NoteBuilder().WithCheckListItems().Build();
 
             Mocker.GetMock<INotesRepository>()
                   .Setup((INotesRepository repo) => repo.GetNote(It.IsAny<int>()))

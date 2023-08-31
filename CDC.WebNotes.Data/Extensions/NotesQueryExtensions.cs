@@ -1,4 +1,4 @@
-﻿using CDC.WebNotes.Domain.Notes;
+﻿using CDC.WebNotes.Domain;
 using CDC.WebNotes.Dto;
 using CDC.WebNotes.Dto.Notes;
 using System.Linq;

@@ -1,7 +1,7 @@
-using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using CDC.WebNotes.Data;
 using CDC.WebNotes.Host.Extensions;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
+using System;
 
 namespace WebNotes
 {
@@ -29,6 +30,17 @@ namespace WebNotes
             services.AddDbContext<ApplicationDbContext>(
                 op => op.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(op => {
+                    op.Cookie.Name = "IlonasCookie"; 
+                    op.Cookie.HttpOnly = true;
+                    op.ExpireTimeSpan = TimeSpan.FromMinutes(3);
+                });
+
+            services.AddHttpContextAccessor();
+
+            services.AddAuthorization();
+                  
             services.AddProblemDetailsConfig();
 
             services.AddServices();
@@ -62,11 +74,12 @@ namespace WebNotes
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireAuthorization();
             });
         }
     }

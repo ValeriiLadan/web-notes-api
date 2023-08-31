@@ -1,6 +1,5 @@
-﻿namespace CDC.WebNotes.Api.Models.Notes
+﻿namespace CDC.WebNotes.Api.Models.Notes.NoteCheckListItems
 {
-
     public class PatchNoteCheckListItem
     {
         public string Value { get; set; }

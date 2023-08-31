@@ -4,7 +4,7 @@ using AutoMapper;
 using AutoMapper.EquivalencyExpression;
 using Bogus;
 using CDC.WebNotes.Application.Mapping;
-using CDC.WebNotes.Domain.Notes;
+using CDC.WebNotes.Domain;
 using Moq.AutoMock;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;

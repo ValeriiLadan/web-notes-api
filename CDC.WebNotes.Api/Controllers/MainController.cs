@@ -1,6 +1,7 @@
 ﻿using CDC.WebNotes.Application.Contracts;
 using CDC.WebNotes.Dto;
 using CDC.WebNotes.Dto.Notes;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -12,19 +13,27 @@ namespace WebNotes.Controllers
     public class MainController : ControllerBase
     {
         private readonly INotesService _noteService;
+        private readonly IAuthService _authService;
 
-        public MainController(INotesService noteService)
+        public MainController(INotesService noteService, IAuthService authService)
         {
             _noteService = noteService;
+            _authService = authService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-
             try
             {
-                var result = await _noteService.GetAllNotes(new PagingDto(), new SortingDto<NotesSortingFieldsDto>());
+                var currentUser = await _authService.GetUserByUsernameAsync(Request.HttpContext.User.Identity.Name);
+                if (currentUser == null)
+                {
+                    return Unauthorized();
+                }
+
+                var result = await _noteService.GetAllNotes(currentUser.Id, new PagingDto(), new SortingDto<NotesSortingFieldsDto>(), new FilterNoteDto());
 
                 return Ok(result);
 

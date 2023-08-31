@@ -1,4 +1,4 @@
-﻿using CDC.WebNotes.Dto.Notes;
+﻿using CDC.WebNotes.Dto.NoteCheckListItems;
 using System.Threading.Tasks;
 
 namespace CDC.WebNotes.Application.Contracts

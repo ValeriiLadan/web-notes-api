@@ -1,5 +1,5 @@
 ﻿using Bogus;
-using CDC.WebNotes.Domain.Notes;
+using CDC.WebNotes.Domain;
 using System.Collections.Generic;
 using System.Linq;
 

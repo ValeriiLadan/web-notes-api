@@ -10,10 +10,20 @@
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.32" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CDC.WebNotes.Application\CDC.WebNotes.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Notes\NoteCheckListItems\" />
+    <Folder Include="Models\Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\Notes\NoteCheckListItems\" />
+    <None Remove="Models\Files\" />
+  </ItemGroup>
 </Project>

@@ -30,6 +30,9 @@ namespace CDC.WebNotes.Host.Extensions
         {
             services.AddScoped<INotesService, NotesService>();
             services.AddScoped<INoteCheckListItemsService, NoteCheckListItemsService>();
+            services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IAttachmentService, AttachmentService>();
+            services.AddScoped<IAuthService, AuthService>();
 
             return services;
         }
@@ -38,6 +41,9 @@ namespace CDC.WebNotes.Host.Extensions
         {
             services.AddScoped<INotesRepository, NotesRepository>();
             services.AddScoped<INoteCheckListItemsRepository, NoteCheckListItemsRepository>();
+            services.AddScoped<IFilesRepository, FilesRepository>();
+            services.AddScoped<IAttachmentsRepository, AttachmentsRepository>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
 
             return services;
         }
